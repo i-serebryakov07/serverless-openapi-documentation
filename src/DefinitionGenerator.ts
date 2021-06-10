@@ -130,7 +130,7 @@ export class DefinitionGenerator {
     documentationConfig
   ): Operation {
     const operationObj: Operation = {
-      operationId: funcName
+      operationId: documentationConfig.operationId || funcName
     };
 
     if (documentationConfig.summary) {

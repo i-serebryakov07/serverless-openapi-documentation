@@ -28,6 +28,7 @@ interface Service {
 
 interface Variables {
   service: Service;
+  populateService(): Promise<any>;
 }
 
 interface FullServerless extends Serverless {
@@ -125,7 +126,7 @@ export class ServerlessOpenApiDocumentation {
       });
 
     // Add Paths to OpenAPI Output from Function Configuration
-    generator.readFunctions(funcConfigs);
+    generator.readFunctions(funcConfigs as any);
 
     // Process CLI Input options
     const config = this.processCliInput();

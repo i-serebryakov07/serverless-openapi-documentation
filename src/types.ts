@@ -18,6 +18,7 @@ export interface DefinitionConfig {
   security: Array<OpenAPIV3.SecurityRequirementObject>;
   servers: Array<OpenAPIV3.ServerObject>;
   models: Array<Model>;
+  operationId?: string;
 }
 
 export enum Format {
