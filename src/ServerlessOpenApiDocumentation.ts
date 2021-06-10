@@ -85,6 +85,18 @@ export class ServerlessOpenApiDocumentation {
     this.hooks = {
       "openapi:generate:serverless": this.generate.bind(this)
     };
+
+    const functionEventCustomPropSchema = {
+      properties: {
+        documentation: { type: "object" }
+      }
+    };
+
+    this.serverless.configSchemaHandler.defineFunctionEventProperties(
+      "aws",
+      "http",
+      functionEventCustomPropSchema
+    );
   }
 
   private log: ILog = (...str: Array<string>) => {
